@@ -1,1 +1,1 @@
-# video-hosting
+# video-streaming
