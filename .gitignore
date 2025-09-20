@@ -1,0 +1,26 @@
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Builds / coverage
+dist/
+out/
+coverage/
+
+# Node
+**/node_modules/
+
+# Env files
+.env
+.env.*
+
+# Frameworks (future-proof)
+.next/
+.vercel/
+

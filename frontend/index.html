@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Video Test</title>
+  </head>
+  <body>
+    <div>
+      <input id="videoUrl" type="url" value="http://localhost:3001/video" placeholder="URL видео" />
+      <button id="loadBtn" type="button">Загрузить</button>
+    </div>
+    <video id="player" width="640" height="360" controls src="http://localhost:3001/video"></video>
+
+    <script>
+      (function () {
+        var input = document.getElementById('videoUrl');
+        var btn = document.getElementById('loadBtn');
+        var video = document.getElementById('player');
+
+        function handleLoad() {
+          var url = (input.value || '').trim();
+          if (!url) return;
+          if (video.getAttribute('src') !== url) {
+            video.setAttribute('src', url);
+          }
+          try { video.load(); } catch (e) {}
+          if (typeof video.play === 'function') {
+            video.play().catch(function () {});
+          }
+        }
+
+        btn.addEventListener('click', handleLoad);
+        input.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter') handleLoad();
+        });
+      })();
+    </script>
+  </body>
+  </html>
