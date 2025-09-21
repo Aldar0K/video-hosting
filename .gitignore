@@ -20,6 +20,9 @@ coverage/
 .env
 .env.*
 
+# Uploads
+backend/uploads/
+
 # Frameworks (future-proof)
 .next/
 .vercel/

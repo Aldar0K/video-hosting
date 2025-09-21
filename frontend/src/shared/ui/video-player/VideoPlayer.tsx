@@ -45,7 +45,7 @@ const VideoPlayer = ({ initialUrl = "http://localhost:3001/video" }: VideoPlayer
     <div className="space-y-4">
       <div className="flex gap-2">
         <input
-          className="flex-1 rounded-md border border-slate-800 bg-slate-900 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-600"
+          className="flex-1 rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
           type="url"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
@@ -53,14 +53,14 @@ const VideoPlayer = ({ initialUrl = "http://localhost:3001/video" }: VideoPlayer
           aria-label="Поле ввода URL видео"
         />
         <button
-          className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
+          className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-ring"
           onClick={handleLoad}
         >
           Загрузить
         </button>
       </div>
 
-      <div className="rounded-md border border-slate-800 overflow-hidden bg-black">
+      <div className="rounded-md border border-border overflow-hidden bg-card text-card-foreground">
         <video
           ref={videoRef}
           className="w-full h-auto"
@@ -72,37 +72,37 @@ const VideoPlayer = ({ initialUrl = "http://localhost:3001/video" }: VideoPlayer
           onPause={() => setIsPlaying(false)}
         />
 
-        <div className="flex items-center gap-2 p-3 border-t border-slate-800 bg-slate-900/60">
+        <div className="flex items-center gap-2 p-3 border-t border-border bg-muted/60">
           <button
-            className="rounded bg-slate-800 px-3 py-2 text-sm hover:bg-slate-700"
+            className="rounded bg-muted px-3 py-2 text-sm text-foreground hover:opacity-90"
             onClick={handleToggle}
             aria-label={isPlaying ? "Пауза" : "Воспроизвести"}
           >
             {isPlaying ? "Пауза" : "Старт"}
           </button>
           <button
-            className="rounded bg-slate-800 px-3 py-2 text-sm hover:bg-slate-700"
+            className="rounded bg-muted px-3 py-2 text-sm text-foreground hover:opacity-90"
             onClick={() => handleSeek(-10)}
             aria-label="Назад 10с"
           >
             -10с
           </button>
           <button
-            className="rounded bg-slate-800 px-3 py-2 text-sm hover:bg-slate-700"
+            className="rounded bg-muted px-3 py-2 text-sm text-foreground hover:opacity-90"
             onClick={() => handleSeek(10)}
             aria-label="Вперед 10с"
           >
             +10с
           </button>
           <button
-            className="rounded bg-slate-800 px-3 py-2 text-sm hover:bg-slate-700"
+            className="rounded bg-muted px-3 py-2 text-sm text-foreground hover:opacity-90"
             onClick={() => handleVolume(-0.1)}
             aria-label="Тише"
           >
             Vol-
           </button>
           <button
-            className="rounded bg-slate-800 px-3 py-2 text-sm hover:bg-slate-700"
+            className="rounded bg-muted px-3 py-2 text-sm text-foreground hover:opacity-90"
             onClick={() => handleVolume(0.1)}
             aria-label="Громче"
           >
